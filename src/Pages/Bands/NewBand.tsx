@@ -51,7 +51,9 @@ const NewBandForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div>
+      <h2> Add Band </h2>
+ <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="band_name">Band Name:</label>
         <input
@@ -84,6 +86,8 @@ const NewBandForm: React.FC = () => {
       </div>
       <button type="submit">Create Band</button>
     </form>
+    </div>
+   
   );
 };
 

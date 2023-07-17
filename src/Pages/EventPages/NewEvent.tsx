@@ -74,7 +74,9 @@ const EventForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="div">
+      <h2> Add Event</h2>
+ <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="event_name">Event Name:</label>
         <input
@@ -166,6 +168,8 @@ const EventForm: React.FC = () => {
       </div>
       <button type="submit">Create Event</button>
     </form>
+    </div>
+   
   );
 };
 

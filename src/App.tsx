@@ -7,7 +7,8 @@ import { BrowserRouter, Route, Router } from "react-router-dom";
 // import NewBand from './Pages/Bands/NewBand';
 // import EditBands from './Pages/Bands/EditBands';
 // import EventForm from './Pages/EventPages/NewEvent';
-import EditEvent from './Pages/EventPages/EditEvent';
+// import EditEvent from './Pages/EventPages/EditEvent';
+import NavBar from './Components/NavBar';
 
 
 function App() {
@@ -21,7 +22,9 @@ function App() {
       < UserLogin/> */}
       {/* <NewBand  /> */}
       {/* <EventForm />  */}
-      <EditEvent eventId={1}/>
+      {/* <EditEvent eventId={1}/> */}
+      <NavBar/>
+
     </BrowserRouter>
     
   );

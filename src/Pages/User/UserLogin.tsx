@@ -47,29 +47,32 @@ const UserLogin: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={credentials.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <main>
+      <h1>Sign In</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={credentials.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </main>
   );
 };
 

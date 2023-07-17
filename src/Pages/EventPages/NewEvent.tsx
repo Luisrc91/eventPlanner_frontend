@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 interface Event {
   event_name: string;
@@ -15,19 +15,21 @@ interface Event {
 
 const EventForm: React.FC = () => {
   const [event, setEvent] = useState<Event>({
-    event_name: '',
-    event_type: '',
+    event_name: "",
+    event_type: "",
     guest: undefined,
-    place_name: '',
-    date_of_event: '',
-    start_time: '',
-    end_time: '',
-    description: '',
+    place_name: "",
+    date_of_event: "",
+    start_time: "",
+    end_time: "",
+    description: "",
     picture: undefined,
-    band_name: '',
+    band_name: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setEvent((prevEvent) => ({
       ...prevEvent,
@@ -39,35 +41,35 @@ const EventForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/events', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/events", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(event),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Event created:', data);
+        console.log("Event created:", data);
         // Reset the form
         setEvent({
-          event_name: '',
-          event_type: '',
+          event_name: "",
+          event_type: "",
           guest: undefined,
-          place_name: '',
-          date_of_event: '',
-          start_time: '',
-          end_time: '',
-          description: '',
+          place_name: "",
+          date_of_event: "",
+          start_time: "",
+          end_time: "",
+          description: "",
           picture: undefined,
-          band_name: '',
+          band_name: "",
         });
       } else {
-        console.log('Failed to create event:', response.status);
+        console.log("Failed to create event:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
 
@@ -99,7 +101,7 @@ const EventForm: React.FC = () => {
           type="number"
           id="guest"
           name="guest"
-          value={event.guest || ''}
+          value={event.guest || ""}
           onChange={handleChange}
         />
       </div>

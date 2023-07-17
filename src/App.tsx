@@ -1,32 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { BrowserRouter, Route, Router } from "react-router-dom";
-// import SignUp from './Pages/User/UserSignup'
-// import UserLogin from './Pages/User/UserLogin';
-// import NewBand from './Pages/Bands/NewBand';
-// import EditBands from './Pages/Bands/EditBands';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+
+import NavBar from "./Components/NavBar";
+import Home from "./Pages/Home";
 // import EventForm from './Pages/EventPages/NewEvent';
 // import EditEvent from './Pages/EventPages/EditEvent';
-import NavBar from './Components/NavBar';
-
 
 function App() {
   return (
     <BrowserRouter>
-{/* <Router location={''} navigator={undefined}> */}
-
-{/* < EditBands bandId={0} /> */}
-{/* </Router> */}
-      {/* < SignUp/>
-      < UserLogin/> */}
-      {/* <NewBand  /> */}
-      {/* <EventForm />  */}
-      {/* <EditEvent eventId={1}/> */}
-      <NavBar/>
-
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </BrowserRouter>
-    
   );
 }
 

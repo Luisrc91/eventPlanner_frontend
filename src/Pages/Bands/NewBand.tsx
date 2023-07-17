@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 interface Band {
   band_name: string;
@@ -8,9 +8,9 @@ interface Band {
 
 const NewBandForm: React.FC = () => {
   const [band, setBand] = useState<Band>({
-    band_name: '',
-    genre: '',
-    event_place: '',
+    band_name: "",
+    genre: "",
+    event_place: "",
   });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,28 +25,28 @@ const NewBandForm: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:5000/bands/', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/bands/", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(band),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('New band created:', data);
+        console.log("New band created:", data);
         // Reset the form
         setBand({
-          band_name: '',
-          genre: '',
-          event_place: '',
+          band_name: "",
+          genre: "",
+          event_place: "",
         });
       } else {
-        console.log('Failed to create new band:', response.status);
+        console.log("Failed to create new band:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
 

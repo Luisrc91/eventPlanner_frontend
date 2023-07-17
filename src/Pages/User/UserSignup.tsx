@@ -9,7 +9,6 @@ interface User {
 }
 
 const SignUp = () => {
-
   const navigate = useNavigate();
 
   const [user, setUser] = useState<User>({

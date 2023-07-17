@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 
 interface Event {
   event_id: number;
@@ -21,16 +21,16 @@ interface EditEventFormProps {
 const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
   const [event, setEvent] = useState<Event>({
     event_id: eventId,
-    event_name: '',
-    event_type: '',
+    event_name: "",
+    event_type: "",
     guest: undefined,
-    place_name: '',
-    date_of_event: '',
-    start_time: '',
-    end_time: '',
-    description: '',
+    place_name: "",
+    date_of_event: "",
+    start_time: "",
+    end_time: "",
+    description: "",
     picture: undefined,
-    band_name: '',
+    band_name: "",
   });
 
   useEffect(() => {
@@ -45,14 +45,16 @@ const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
         const data = await response.json();
         setEvent(data);
       } else {
-        console.log('Failed to fetch event data:', response.status);
+        console.log("Failed to fetch event data:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setEvent((prevEvent) => ({
       ...prevEvent,
@@ -65,21 +67,21 @@ const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
 
     try {
       const response = await fetch(`http://localhost:5000/events${eventId}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(event),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Event updated:', data);
+        console.log("Event updated:", data);
       } else {
-        console.log('Failed to update event:', response.status);
+        console.log("Failed to update event:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
 
@@ -111,7 +113,7 @@ const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
           type="number"
           id="guest"
           name="guest"
-          value={event.guest || ''}
+          value={event.guest || ""}
           onChange={handleChange}
         />
       </div>

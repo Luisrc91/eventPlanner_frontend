@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 
 interface Band {
   band_id: number;
@@ -14,9 +14,9 @@ interface EditBandFormProps {
 const EditBands: React.FC<EditBandFormProps> = ({ bandId }) => {
   const [band, setBand] = useState<Band>({
     band_id: bandId,
-    band_name: '',
-    genre: '',
-    event_place: '',
+    band_name: "",
+    genre: "",
+    event_place: "",
   });
 
   useEffect(() => {
@@ -30,13 +30,12 @@ const EditBands: React.FC<EditBandFormProps> = ({ bandId }) => {
         const data = await response.json();
         setBand(data);
       } else {
-        console.log('Failed to fetch band data:', response.status);
+        console.log("Failed to fetch band data:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
-
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -51,21 +50,21 @@ const EditBands: React.FC<EditBandFormProps> = ({ bandId }) => {
 
     try {
       const response = await fetch(`http://localhost:5000/bands/${bandId}`, {
-        method: 'PUT',
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(band),
       });
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Band updated:', data);
+        console.log("Band updated:", data);
       } else {
-        console.log('Failed to update band:', response.status);
+        console.log("Failed to update band:", response.status);
       }
     } catch (error) {
-      console.log('Error:', error);
+      console.log("Error:", error);
     }
   };
 

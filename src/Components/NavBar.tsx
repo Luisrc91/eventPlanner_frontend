@@ -1,16 +1,21 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 function NavBar() {
   return (
-
     //// got this from my porfolio layout
     <div>
-      {['md'].map((expand) => (
-        <Navbar style={{ backgroundColor: '#393b42' }} key={expand} bg="purple" expand={expand} className="mb-3">
+      {["md"].map((expand) => (
+        <Navbar
+          style={{ backgroundColor: "#393b42" }}
+          key={expand}
+          bg="purple"
+          expand={expand}
+          className="mb-3"
+        >
           <Container fluid>
             <Navbar.Brand href="#"></Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -24,12 +29,25 @@ function NavBar() {
                   Menu
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body style={{ backgroundColor: '#393b42' }}>
-                <Nav style={{ color: 'white' }} className="justify-content-end flex-grow-1 pe-2 nav nav-underline">
-                  <Nav.Link className="nav-link active" aria-current="page" style={{ color: 'white' }} href="/">
+              <Offcanvas.Body style={{ backgroundColor: "#393b42" }}>
+                <Nav
+                  style={{ color: "white" }}
+                  className="justify-content-end flex-grow-1 pe-2 nav nav-underline"
+                >
+                  <Nav.Link
+                    className="nav-link active"
+                    aria-current="page"
+                    style={{ color: "white" }}
+                    href="/"
+                  >
                     Home
                   </Nav.Link>
-                  <Nav.Link className="nav-link active" aria-current="page" style={{ color: 'white' }} href="/events">
+                  <Nav.Link
+                    className="nav-link active"
+                    aria-current="page"
+                    style={{ color: "white" }}
+                    href="/events"
+                  >
                     Events
                   </Nav.Link>
                 </Nav>

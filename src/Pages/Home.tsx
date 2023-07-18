@@ -2,14 +2,16 @@ import React from "react";
 import UserLogin from "./User/UserLogin";
 import SignUp from "./User/UserSignup";
 
-
 export default function Home() {
   return (
-    <>
-      <h1>Home</h1>
-      <UserLogin />
-      <SignUp />
-      
-    </>
+    <div>
+      <h1>Events & Feasts</h1>
+      <div>
+        <UserLogin />
+      </div>
+      <div>
+        <SignUp />
+      </div>
+    </div>
   );
 }

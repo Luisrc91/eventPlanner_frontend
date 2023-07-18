@@ -10,7 +10,7 @@ function NavBar() {
     <div>
       {["md"].map((expand) => (
         <Navbar
-          style={{ backgroundColor: "#393b42" }}
+          style={{ backgroundColor: "#e05e13" }}
           key={expand}
           bg="purple"
           expand={expand}
@@ -29,7 +29,7 @@ function NavBar() {
                   Menu
                 </Offcanvas.Title>
               </Offcanvas.Header>
-              <Offcanvas.Body style={{ backgroundColor: "#393b42" }}>
+              <Offcanvas.Body style={{ backgroundColor: "#c73e09" }}>
                 <Nav
                   style={{ color: "white" }}
                   className="justify-content-end flex-grow-1 pe-2 nav nav-underline"
@@ -49,6 +49,14 @@ function NavBar() {
                     href="/events"
                   >
                     Events
+                  </Nav.Link>
+                  <Nav.Link
+                    className="nav-link active"
+                    aria-current="page"
+                    style={{ color: "white" }}
+                    href="/login"
+                  >
+                    Login
                   </Nav.Link>
                 </Nav>
               </Offcanvas.Body>

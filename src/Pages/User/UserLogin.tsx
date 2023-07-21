@@ -1,31 +1,30 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState, ChangeEvent, FormEvent, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { CurrentUser } from "../../contexts/CurrentUser";
 
 interface Credentials {
-  user_name: string;
+  // user_name: string;
   email: string;
   password: string;
 }
 
 const UserLogin: React.FC = () => {
+  const navigate = useNavigate();
+  const { setCurrentUser } = useContext(CurrentUser);
+
   const [credentials, setCredentials] = useState<Credentials>({
-    user_name: "",
+    // user_name: "",
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCredentials((prevCredentials) => ({
-      ...prevCredentials,
-      [name]: value,
-    }));
-  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:5000/users/`, {
+      const response = await fetch(`http://localhost:5000/authentication/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -33,46 +32,66 @@ const UserLogin: React.FC = () => {
         body: JSON.stringify(credentials),
       });
 
-      if (response.ok) {
-        const data = await response.json();
+      const data = await response.json();
+      if (response.status === 200) {
         console.log("Login successful:", data);
         // Reset the form
-        setCredentials({ user_name: "", email: "", password: "" });
+        setCurrentUser(data.user);
+        localStorage.setItem("token", data.token);
+        navigate("/profile");
       } else {
+        setErrorMessage(data.message);
         console.log("Login failed:", response.status);
       }
-    } catch (error) {
+    } 
+    catch (error) {
       console.log("Error:", error);
     }
   };
 
   return (
-    <main>
+    <div className="userLogin">
+<main>
       <h1>Sign In</h1>
+      {errorMessage !== null ? (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
+      ) : null}
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
+            required
+            value={credentials.email}
+            onChange={(e) =>
+              setCredentials({ ...credentials, email: e.target.value })
+            }
+            className="form-control"
             id="email"
             name="email"
-            value={credentials.email}
-            onChange={handleChange}
           />
         </div>
         <div>
           <label htmlFor="password">Password:</label>
           <input
             type="password"
+            required
+            value={credentials.password}
+            onChange={(e) =>
+              setCredentials({ ...credentials, password: e.target.value })
+            }
+            className="form-control"
             id="password"
             name="password"
-            value={credentials.password}
-            onChange={handleChange}
           />
         </div>
         <button type="submit">Login</button>
       </form>
     </main>
+    </div>
+    
   );
 };
 

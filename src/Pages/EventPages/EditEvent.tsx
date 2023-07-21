@@ -86,7 +86,8 @@ const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <div className="editEventForm">
+      <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="event_name">Event Name:</label>
         <input
@@ -178,6 +179,8 @@ const EditEvent: React.FC<EditEventFormProps> = ({ eventId }) => {
       </div>
       <button type="submit">Update Event</button>
     </form>
+    </div>
+    
   );
 };
 

@@ -1,7 +1,9 @@
 import React from 'react'
-import CreateForm from "../CreateForm";
-export default function userPage() {
+
+import EventForm from '../EventPages/NewEvent';
+
+export default function UserPage() {
   return (
-    <div><CreateForm /></div>
+    <div><EventForm /></div>
   )
 }

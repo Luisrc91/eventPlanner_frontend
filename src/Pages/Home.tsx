@@ -6,9 +6,7 @@ export default function Home() {
   return (
     <div>
       <h1>Events & Feasts</h1>
-      <div>
-        <UserLogin />
-      </div>
+     
       <div>
         <SignUp />
       </div>

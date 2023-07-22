@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../css/app.css'
+import '../css/viewEvents.css'
 interface Event {
   event_id: number;
   event_name: string;
@@ -32,7 +32,7 @@ const EventsView: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="events-view-container">
       <h1>Events</h1>
       {events.length === 0 ? (
         <p>No events found.</p>

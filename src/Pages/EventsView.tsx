@@ -19,7 +19,7 @@ const EventsView: React.FC = () => {
 
   const fetchEventsData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/events');
+      const response = await fetch(`${process.env.REACT_APP_SERVER_URL}events/`);
       if (response.ok) {
         const data = await response.json();
         setEvents(data);

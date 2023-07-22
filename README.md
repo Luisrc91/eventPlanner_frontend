@@ -1,7 +1,9 @@
-# Event Planner
+# Event Planner - Frontend
 ***
 
-## Create a new event by user
+## Description
+- Create user and create a new event by user, allows you to view events list. 
+
 
 ## Technologies
 - React js 
@@ -19,3 +21,7 @@ Luis Ramirez
 
 ### Backend Link
 https://github.com/Luisrc91/eventPlanner_backend 
+
+### Deploy Link
+
+http://event-planner-env-2.eba-3vgpcz8i.us-east-1.elasticbeanstalk.com/

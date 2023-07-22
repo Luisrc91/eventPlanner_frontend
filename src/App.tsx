@@ -1,6 +1,6 @@
-import "./App.scss";
-import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
 
+import { BrowserRouter, Route, Router, Routes } from "react-router-dom";
+import '../src/css/app.css'
 import NavBar from "./Components/NavBar";
 import Home from "./Pages/Home";
 import EventsView from "./Pages/EventsView";

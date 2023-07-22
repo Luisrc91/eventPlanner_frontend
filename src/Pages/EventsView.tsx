@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import '../css/app.css'
 interface Event {
   event_id: number;
   event_name: string;

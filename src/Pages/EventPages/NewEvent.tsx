@@ -2,6 +2,7 @@ import React, { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { CurrentUser } from "../../contexts/CurrentUser";
 
+
 interface Event {
   user_id: number;
   event_name: string;
@@ -54,13 +55,13 @@ const EventForm: React.FC = () => {
       console.log(data);
 
       // If the POST request is successful, navigate to the '/events' page
-      // navigate("/events");
+      navigate("/events");
     } catch (error) {
       console.error("Error submitting form:", error);
       // Handle error
     }
+    
   };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setEvent((prevEvent) => ({ ...prevEvent, [name]: value }));

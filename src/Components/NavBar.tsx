@@ -5,29 +5,29 @@
 // import Offcanvas from "react-bootstrap/Offcanvas";
 import React from 'react';
 import { Link } from 'react-router-dom';
+import "../css/navbar.css";
 
 function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div className="container">
-   
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link style={{textDecoration:'none'}} to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/login" className="nav-link">
-              Login
-            </Link>
-          </li>
-        </ul>
+      <div className="container">
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <Link  to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link  to="/login" className="nav-link">
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-);
-};
+    </nav>
+  );
+}
 
 export default NavBar;

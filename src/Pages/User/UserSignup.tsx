@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+// import '../../scss/app.css';
+import '../../css/signup.css'
 
 interface User {
   user_name: string;

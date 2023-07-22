@@ -46,7 +46,10 @@ const EventForm: React.FC = () => {
         body: JSON.stringify(event),
       };
 
-      const response = await fetch("http://localhost:5000/events", requestOptions);
+      const response = await fetch(
+        "http://localhost:5000/events",
+        requestOptions
+      );
       const data = await response.json();
       console.log(data);
 
@@ -87,16 +90,7 @@ const EventForm: React.FC = () => {
             onChange={(e) => setEvent({ ...event, event_type: e.target.value })}
           />
         </div>
-        <div>
-          <label htmlFor="guest">Guest:</label>
-          <input
-            type="number"
-            id="guest"
-            name="guest"
-            value={event.guest || ""}
-            onChange={(e) => setEvent({ ...event, guest: e.target.value })}
-          />
-        </div>
+       
         <div>
           <label htmlFor="place_name">Place Name:</label>
           <input
@@ -105,6 +99,26 @@ const EventForm: React.FC = () => {
             name="place_name"
             value={event.place_name}
             onChange={(e) => setEvent({ ...event, place_name: e.target.value })}
+          />
+        </div>
+        <div>
+          <label htmlFor="band_name">Band Name:</label>
+          <input
+            type="text"
+            id="band_name"
+            name="band_name"
+            value={event.band_name}
+            onChange={(e) => setEvent({ ...event, band_name: e.target.value })}
+          />
+        </div>
+        <div>
+          <label htmlFor="capacity">Capacity:</label>
+          <input
+            type="number"
+            id="guest"
+            name="capacity"
+            value={event.guest || ""}
+            onChange={(e) => setEvent({ ...event, guest: e.target.value })}
           />
         </div>
         <div>
@@ -150,26 +164,17 @@ const EventForm: React.FC = () => {
             }
           ></textarea>
         </div>
+
         <div>
-          <label htmlFor="band_name">Band Name:</label>
-          <input
-            type="text"
-            id="band_name"
-            name="band_name"
-            value={event.band_name}
-            onChange={(e) => setEvent({ ...event, band_name: e.target.value })}
-          />
-        </div>
-        {/* <div>
           <label htmlFor="picture">Picture:</label>
           <input
-            type="file"
+            type="input"
             id="picture"
             name="picture"
             value={event.picture}
             onChange={(e) => setEvent({ ...event, picture: e.target.value })}
           />
-        </div> */}
+        </div>
         <button type="submit">Create Event</button>
       </form>
     </div>

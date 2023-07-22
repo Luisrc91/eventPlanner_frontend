@@ -13,7 +13,6 @@ const UserLogin: React.FC = () => {
   const { setCurrentUser } = useContext(CurrentUser);
 
   const [credentials, setCredentials] = useState<Credentials>({
-    // user_name: "",
     email: "",
     password: "",
   });

@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { CurrentUser } from "../../contexts/CurrentUser";
 
 interface Event {
-  // user_id: number;
+  user_id: number;
   event_name: string;
   event_type: string;
   guest: string;
@@ -17,11 +17,11 @@ interface Event {
 }
 
 const EventForm: React.FC = () => {
-  // const { currentUser } = useContext(CurrentUser); // Assuming CurrentUser provides the user_id
   const navigate = useNavigate();
+  const { currentUser } = useContext(CurrentUser);
 
-  const [event, setEvent] = useState<Event>({
-    // user_id: currentUser?.user_id || 0, // Set the user_id from the currentUser context or 0 as a fallback
+  const initialEventState: Event = {
+    user_id: currentUser ? currentUser.id : 0, // Set 0 as a fallback if user_id is not available
     event_name: "",
     event_type: "",
     guest: "",
@@ -32,21 +32,36 @@ const EventForm: React.FC = () => {
     description: "",
     picture: "",
     band_name: "",
-  });
+  };
 
-  async function handleSubmit(e: { preventDefault: () => void }) {
+  const [event, setEvent] = useState<Event>(initialEventState);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await fetch(`http://localhost:5000/events`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(event),
-    });
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(event),
+      };
 
-    navigate("/events");
-  }
+      const response = await fetch("http://localhost:5000/events", requestOptions);
+      const data = await response.json();
+      console.log(data);
+
+      // If the POST request is successful, navigate to the '/events' page
+      // navigate("/events");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      // Handle error
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setEvent((prevEvent) => ({ ...prevEvent, [name]: value }));
+  };
 
   return (
     <div className="newEventForm">
@@ -145,7 +160,7 @@ const EventForm: React.FC = () => {
             onChange={(e) => setEvent({ ...event, band_name: e.target.value })}
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="picture">Picture:</label>
           <input
             type="file"
@@ -154,7 +169,7 @@ const EventForm: React.FC = () => {
             value={event.picture}
             onChange={(e) => setEvent({ ...event, picture: e.target.value })}
           />
-        </div>
+        </div> */}
         <button type="submit">Create Event</button>
       </form>
     </div>

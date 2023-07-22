@@ -1,12 +1,10 @@
-import React from "react";
-import UserLogin from "./User/UserLogin";
-import SignUp from "./User/UserSignup";
+import SignUp from "./User/UserSignUp";
 
 export default function Home() {
   return (
     <div>
       <h1>Events & Feasts</h1>
-     
+
       <div>
         <SignUp />
       </div>

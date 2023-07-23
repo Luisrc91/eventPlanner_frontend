@@ -22,7 +22,7 @@ const SignUp = () => {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    await fetch(`${process.env.REACT_APP_SERVER_URL}users/`, {
+    await fetch(`http://localhost:5000/users/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

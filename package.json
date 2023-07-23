@@ -19,10 +19,14 @@
     "sass": "^1.64.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
-    "engines":{
-      "start":"node"
-    }
+    
+ 
   },
+  
+  "engines" : { 
+    "node" : "20.3.1" 
+  },
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

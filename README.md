@@ -11,7 +11,7 @@
 - Bootstrap
 
 ## Installation
-- Fork the repository, once forked you have to clone the repository.
+- Fork the repository, once forked you have to clone the repository in your terminal.
 - Install Npm package modules - npm install, npm i typescript
 
 

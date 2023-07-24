@@ -24,4 +24,4 @@ https://github.com/Luisrc91/eventPlanner_backend
 
 ### Deploy Link
 
-http://event-planner-env-2.eba-3vgpcz8i.us-east-1.elasticbeanstalk.com/
+https://eventplanner-9d21c.web.app/login

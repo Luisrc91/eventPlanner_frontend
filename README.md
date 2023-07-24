@@ -2,7 +2,7 @@
 ***
 
 ## Description
-- Create user and create a new event by user, allows you to view events list. 
+- This website is base on creating event such as concerts, feast or any type of celebration. Which include a database on PgAdmin/Postgres that lets you store data such as username , passwords and email; also for the events event name, type of event, time of event and so on. The frontend is created in Reactjs and Typescript and for the Backend is created with Express-js, Postgres for the database. This website you can Create, Read, Update and Delete, users and events.
 
 
 ## Technologies

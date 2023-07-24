@@ -24,8 +24,8 @@ yarn-error.log*
 
 .vercel
 
-.firebase
-.firebase.json
-.firebaserc
-.env
-.env.production
+/.firebase
+/.firebase.json
+/.firebaserc
+/.env
+/.env.production

@@ -25,3 +25,6 @@ https://github.com/Luisrc91/eventPlanner_backend
 ### Deploy Link
 #### Firebase
 https://eventplanner-9d21c.web.app/login
+
+
+**For futher feautes is to fix bugs when deleting and updating users and events, also able to add pictures and design.
